@@ -127,7 +127,10 @@ public class SpeakService extends Service implements TextToSpeech.OnUtteranceCom
             ;
         }
     }
-
+lbackMap = new HashMap<String, String>();
+            myCallbackMap.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, UTTERANCE_ID);
+        }
+        if (myApi == null) {
     static void cleanupPositions() {
         // Cleanup - delete any hashes older than 6 months
         try {
@@ -726,6 +729,7 @@ public class SpeakService extends Service implements TextToSpeech.OnUtteranceCom
         if (myCallbackMap == null) {
             myCallbackMap = new HashMap<String, String>();
             myCallbackMap.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, UTTERANCE_ID);
+            myCallbackMap.put(TextToSpeech.Engine.KEY_FEATURE_NETWORK_SYNTHESIS, "true");
         }
         if (myApi == null) {
             myInitializationStatus &= ~API_INITIALIZED;
